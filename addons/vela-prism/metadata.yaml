@@ -1,0 +1,17 @@
+name: vela-prism
+version: 0.1.0
+description: API Extensions for core KubeVela.
+icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+url: https://github.com/kubevela/prism
+
+tags:
+  - kuberentes
+  - apiserver
+  - extensions
+  - kubevela
+
+deployTo:
+  control_plane: true
+  runtime_cluster: false
+
+invisible: false
