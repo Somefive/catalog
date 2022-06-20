@@ -1,0 +1,17 @@
+name: grafana
+version: v0.1.0
+description: Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
+icon: https://artifacthub.io/image/e69a4034-cfe7-4fa8-95ce-df3837f5d717@1x
+url: https://grafana.com/
+
+tags:
+ - observability
+ - kubernetes
+
+deployTo:
+  control_plane: true
+
+# needNamespace:
+#   - o11n-system
+
+invisible: false

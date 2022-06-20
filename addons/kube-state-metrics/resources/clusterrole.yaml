@@ -7,110 +7,86 @@ metadata:
     app.kubernetes.io/instance: ksm
 rules:
   - apiGroups: ["certificates.k8s.io"]
-    resources:
-    - certificatesigningrequests
+    resources: ["certificatesigningrequests"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - configmaps
+    resources: ["configmaps"]
     verbs: ["list", "watch"]
   - apiGroups: ["batch"]
-    resources:
-    - cronjobs
+    resources: ["cronjobs"]
     verbs: ["list", "watch"]
   - apiGroups: ["extensions", "apps"]
-    resources:
-    - daemonsets
+    resources: ["daemonsets"]
     verbs: ["list", "watch"]
   - apiGroups: ["extensions", "apps"]
-    resources:
-    - deployments
+    resources: ["deployments"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - endpoints
+    resources: ["endpoints"]
     verbs: ["list", "watch"]
   - apiGroups: ["autoscaling"]
-    resources:
-    - horizontalpodautoscalers
+    resources: ["horizontalpodautoscalers"]
     verbs: ["list", "watch"]
   - apiGroups: ["extensions", "networking.k8s.io"]
-    resources:
-    - ingresses
+    resources: ["ingresses"]
     verbs: ["list", "watch"]
   - apiGroups: ["batch"]
-    resources:
-    - jobs
+    resources: ["jobs"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - limitranges
+    resources: ["limitranges"]
     verbs: ["list", "watch"]
   - apiGroups: ["admissionregistration.k8s.io"]
-    resources:
-      - mutatingwebhookconfigurations
+    resources: ["mutatingwebhookconfigurations"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - namespaces
+    resources: ["namespaces"]
     verbs: ["list", "watch"]
   - apiGroups: ["networking.k8s.io"]
-    resources:
-    - networkpolicies
+    resources: ["networkpolicies"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - nodes
+    resources: ["nodes"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - persistentvolumeclaims
+    resources: ["persistentvolumeclaims"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - persistentvolumes
+    resources: ["persistentvolumes"]
     verbs: ["list", "watch"]
   - apiGroups: ["policy"]
-    resources:
-      - poddisruptionbudgets
+    resources: ["poddisruptionbudgets"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - pods
+    resources: ["pods"]
     verbs: ["list", "watch"]
   - apiGroups: ["extensions", "apps"]
-    resources:
-    - replicasets
+    resources: ["replicasets"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - replicationcontrollers
+    resources: ["replicationcontrollers"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - resourcequotas
+    resources: ["resourcequotas"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - secrets
+    resources: ["secrets"]
     verbs: ["list", "watch"]
   - apiGroups: [""]
-    resources:
-    - services
+    resources: ["services"]
     verbs: ["list", "watch"]
   - apiGroups: ["apps"]
-    resources:
-    - statefulsets
+    resources: ["statefulsets"]
     verbs: ["list", "watch"]
   - apiGroups: ["storage.k8s.io"]
-    resources:
-      - storageclasses
+    resources: ["storageclasses"]
     verbs: ["list", "watch"]
   - apiGroups: ["admissionregistration.k8s.io"]
-    resources:
-      - validatingwebhookconfigurations
+    resources: ["validatingwebhookconfigurations"]
     verbs: ["list", "watch"]
   - apiGroups: ["storage.k8s.io"]
-    resources:
-      - volumeattachments
+    resources: ["volumeattachments"]
+    verbs: ["list", "watch"]
+  - apiGroups: ["coordination.k8s.io"]
+    resources: ["leases"]
     verbs: ["list", "watch"]
