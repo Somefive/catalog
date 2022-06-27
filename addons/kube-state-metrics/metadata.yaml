@@ -12,7 +12,4 @@ deployTo:
   control_plane: true
   runtime_cluster: true
 
-# needNamespace:
-#   - o11n-system
-
 invisible: false

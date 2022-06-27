@@ -11,7 +11,4 @@ tags:
 deployTo:
   control_plane: true
 
-# needNamespace:
-#   - o11n-system
-
 invisible: false
