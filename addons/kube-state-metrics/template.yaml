@@ -1,0 +1,18 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: kube-state-metrics
+  namespace: vela-system
+spec:
+  policies:
+    - type: shared-resource
+      name: shared-namespace
+      properties:
+        rules:
+          - selector:
+              resourceTypes: ["Namespace"]
+    - type: topology
+      name: topology-o11n
+      properties:
+        clusterLabelSelector: {}
+        namespace: o11n-system
