@@ -18,6 +18,34 @@ spec:
         app.kubernetes.io/name: prometheus
         app.kubernetes.io/instance: thanos-query
     spec:
+      serviceAccountName: thanos-query
+      initContainers:
+        - name: collect-clusters
+          image: curlimages/curl
+          args:
+          - sh
+          - -c
+          - |
+            NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
+            KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+            curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" \
+                    https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_PORT_443_TCP_PORT/api/v1/namespaces/$NAMESPACE/services?labelSelector=app.kubernetes.io\/instance=prometheus-server \
+                | grep "\"ip\"" | sed -r 's/.+:\s+"(.*)"/\1/g' > /etc/config/prom-endpoints
+            curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" \
+                    https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_PORT_443_TCP_PORT/apis/cluster.core.oam.dev/v1alpha1/clustergateways \
+                | grep "\"name\"" | sed -r 's/.+:\s+"(.*)",/\1/g' > /etc/config/clusters
+            while read cls; do
+              curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" \
+                    https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_PORT_443_TCP_PORT/apis/cluster.core.oam.dev/v1alpha1/clustergateways/$cls/proxy/api/v1/namespaces/$NAMESPACE/services?labelSelector=app.kubernetes.io\/instance=prometheus-server \
+                | grep "\"ip\"" | sed -r 's/.+:\s+"(.*)"/\1/g' >> /etc/config/prom-endpoints
+            done < /etc/config/clusters
+            echo "- targets:" > /etc/config/targets.yaml
+            while read ip; do
+              echo "  - $ip:10901" >> /etc/config/targets.yaml
+            done < /etc/config/prom-endpoints
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
       containers:
         - name: thanos
           image: quay.io/thanos/thanos:v0.8.0
@@ -26,7 +54,7 @@ spec:
             - --http-address=0.0.0.0:9090
             - --log.level=debug
             - --query.replica-label=replica
-            - --store=dnssrv+prometheus-server:10901
+            - --store.sd-files=/etc/config/targets.yaml
           ports:
             - name: http
               containerPort: 9090
@@ -38,3 +66,9 @@ spec:
             httpGet:
               port: http
               path: /-/ready
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          emptyDir: {}

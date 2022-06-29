@@ -32,6 +32,14 @@ spec:
             - name: config
               mountPath: "/etc/grafana/grafana.ini"
               subPath: grafana.ini
+            - name: config
+              mountPath: "/etc/grafana/provisioning/datasources/prometheus.yaml"
+              subPath: prometheus.yaml
+            - name: config
+              mountPath: "/etc/grafana/provisioning/dashboards/dashboards.yaml"
+              subPath: dashboards.yaml
+            - name: dashboards
+              mountPath: "/etc/dashboards/internal"
             - name: storage
               mountPath: "/var/lib/grafana"
           ports:
@@ -71,5 +79,10 @@ spec:
         - name: config
           configMap:
             name: grafana
+        - name: dashboards
+          configMap:
+            name: grafana-dashboards
         - name: storage
+          emptyDir: {}
+        - name: init-config
           emptyDir: {}

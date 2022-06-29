@@ -17,8 +17,6 @@ data:
       evaluation_interval: 1m
       scrape_interval: 1m
       scrape_timeout: 10s
-      external_labels:
-        cluster: $CLUSTER
     rule_files:
     - /etc/config/recording_rules.yml
     - /etc/config/alerting_rules.yml

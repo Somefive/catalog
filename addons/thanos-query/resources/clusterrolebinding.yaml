@@ -1,15 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: kube-state-metrics
+  name: o11n-system:thanos-query
   labels:
-    app.kubernetes.io/name: kube-state-metrics
-    app.kubernetes.io/instance: ksm
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/instance: thanos-query
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: kube-state-metrics
+  name: o11n-system:thanos-query
 subjects:
   - kind: ServiceAccount
-    name: kube-state-metrics
+    name: thanos-query
     namespace: o11n-system

@@ -20,8 +20,3 @@ spec:
         rules:
           - selector:
               resourceTypes: ["Namespace"]
-    - type: topology
-      name: topology
-      properties:
-        clusterLabelSelector: {}
-        namespace: o11n-system

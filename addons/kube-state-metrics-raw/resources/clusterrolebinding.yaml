@@ -1,15 +1,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: o11n-system:prometheus-server
+  name: o11n-system:kube-state-metrics
   labels:
-    app.kubernetes.io/name: prometheus
-    app.kubernetes.io/instance: prometheus-server
+    app.kubernetes.io/name: kube-state-metrics
+    app.kubernetes.io/instance: ksm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: o11n-system:prometheus-server
+  name: o11n-system:kube-state-metrics
 subjects:
   - kind: ServiceAccount
-    name: prometheus-server
+    name: kube-state-metrics
     namespace: o11n-system

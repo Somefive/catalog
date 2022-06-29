@@ -8,8 +8,4 @@ tags:
  - observability
  - kubernetes
 
-deployTo:
-  control_plane: true
-  runtime_cluster: true
-
 invisible: false

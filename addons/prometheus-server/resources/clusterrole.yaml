@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: prometheus-server
+  name: o11n-system:prometheus-server
   labels:
     app.kubernetes.io/name: prometheus
     app.kubernetes.io/instance: prometheus-server
