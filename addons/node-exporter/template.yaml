@@ -1,12 +1,12 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: kube-state-metrics
+  name: node-exporter
   namespace: vela-system
 spec:
   components:
     - type: k8s-objects
-      name: kube-state-metrics-ns
+      name: node-exporter-ns
       properties:
         objects:
           - apiVersion: v1

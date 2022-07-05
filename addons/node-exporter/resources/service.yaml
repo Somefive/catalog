@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-exporter
+  namespace: o11n-system
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port:   '9100'
+spec:
+  selector:
+      app.kubernetes.io/name: node-exporter
+      app.kubernetes.io/instance: node-exporter
+  ports:
+  - name: node-exporter
+    protocol: TCP
+    port: 9100
+    targetPort: 9100

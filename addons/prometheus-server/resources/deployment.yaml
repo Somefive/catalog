@@ -1,0 +1,120 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-server
+  namespace: o11n-system
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/instance: prometheus-server
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: prometheus
+      app.kubernetes.io/instance: prometheus-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: prometheus
+        app.kubernetes.io/instance: prometheus-server
+    spec:
+      serviceAccountName: prometheus-server
+      initContainers:
+        - name: init-config
+          image: curlimages/curl
+          command:
+          - sh
+          - -c
+          - |
+            NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
+            KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+            DEPLOYNAME=$(echo $HOSTNAME | sed -r 's/(.+)-[^-]+-[^-]+/\1/g')
+            curl -sSk -H "Authorization: Bearer $KUBE_TOKEN" \
+                    https://kubernetes.default/apis/apps/v1/namespaces/$NAMESPACE/deployments/$DEPLOYNAME \
+                | grep "\"app.oam.dev/cluster\"" | sed -r 's/.+:\s+"(.*)",/\1/g' > /etc/config/cluster.name \
+            && CLS=$(cat /etc/config/cluster.name) \
+            && CLUSTER="${CLS:-local}" \
+            && echo "cluster: $CLUSTER" \
+            && sed s/\$CLUSTER/$CLUSTER/g /etc/bootconfig/prometheus.yml > /etc/config/prometheus.yml
+          volumeMounts:
+          - name: podinfo
+            mountPath: /etc/podinfo
+          - name: bootconfig-volume
+            mountPath: /etc/bootconfig
+          - name: config-volume
+            mountPath: /etc/config
+      containers:
+        - name: prometheus-server
+          image: "quay.io/prometheus/prometheus:v2.34.0"
+          imagePullPolicy: "IfNotPresent"
+          args:
+            - --config.file=/etc/config/prometheus.yml
+            - --storage.tsdb.path=/data
+            - --web.console.libraries=/etc/prometheus/console_libraries
+            - --web.console.templates=/etc/prometheus/consoles
+            - --web.enable-lifecycle
+          ports:
+            - containerPort: 9090
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 9090
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: 9090
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+            - name: storage-volume
+              mountPath: /data
+        - name: thanos
+          image: quay.io/thanos/thanos:v0.8.0
+          args:
+            - "sidecar"
+            - "--tsdb.path=/data"
+            - "--prometheus.url=http://127.0.0.1:9090"
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          ports:
+            - name: http-sidecar
+              containerPort: 10902
+            - name: grpc
+              containerPort: 10901
+          livenessProbe:
+              httpGet:
+                port: 10902
+                path: /-/healthy
+          readinessProbe:
+            httpGet:
+              port: 10902
+              path: /-/ready
+          volumeMounts:
+            - name: storage-volume
+              mountPath: /data
+
+      hostNetwork: false
+      dnsPolicy: ClusterFirst
+      securityContext:
+        fsGroup: 65534
+        runAsGroup: 65534
+        runAsNonRoot: true
+        runAsUser: 65534
+      terminationGracePeriodSeconds: 300
+      volumes:
+        - name: bootconfig-volume
+          configMap:
+            name: prometheus-server
+        - name: config-volume
+          emptyDir: {}
+        - name: storage-volume
+          emptyDir: {}
+        - name: podinfo
+          downwardAPI:
+            items:
+              - path: annotations
+                fieldRef:
+                  fieldPath: metadata.annotations
