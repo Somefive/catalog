@@ -1919,7 +1919,8 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "iteration": 1656399686917,
+      "id": 5,
+      "iteration": 1657075906777,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -3813,6 +3814,674 @@ data:
           "yaxis": {
             "align": false
           }
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 36
+          },
+          "id": 92,
+          "panels": [
+            {
+              "datasource": {
+                "type": "marcusolsson-json-datasource",
+                "uid": "kubernetes-api"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "align": "auto",
+                    "displayMode": "auto",
+                    "inspect": false
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "Description|CUE|CustomStatus|HealthPolicy"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.inspect",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "^((?!Description).)*$"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 200
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 1
+              },
+              "id": 88,
+              "options": {
+                "footer": {
+                  "fields": "",
+                  "reducer": [
+                    "sum"
+                  ],
+                  "show": false
+                },
+                "showHeader": true
+              },
+              "pluginVersion": "8.5.3",
+              "targets": [
+                {
+                  "cacheDurationSeconds": 300,
+                  "datasource": {
+                    "type": "marcusolsson-json-datasource",
+                    "uid": "kubernetes-api"
+                  },
+                  "fields": [
+                    {
+                      "jsonPath": "$.items[*].metadata.name",
+                      "name": "Name"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.namespace",
+                      "language": "jsonpath",
+                      "name": "Namespace"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.annotations.\"definition.oam.dev/description\"",
+                      "language": "jsonata",
+                      "name": "Description"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.($exists(annotations.\"custom.definition.oam.dev/alias.config.oam.dev\") ? annotations.\"custom.definition.oam.dev/alias.config.oam.dev\" : '')",
+                      "language": "jsonata",
+                      "name": "Alias"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.workload.type",
+                      "language": "jsonata",
+                      "name": "Workload"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.schematic.cue.template",
+                      "language": "jsonpath",
+                      "name": "CUE"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($exists(status.customStatus) ? status.customStatus : '')",
+                      "language": "jsonata",
+                      "name": "CustomStatus"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($exists(status.healthPolicy) ? status.healthPolicy : '')",
+                      "language": "jsonata",
+                      "name": "HealthPolicy"
+                    }
+                  ],
+                  "method": "GET",
+                  "queryParams": "",
+                  "refId": "A",
+                  "urlPath": "/apis/core.oam.dev/v1beta1/componentdefinitions"
+                }
+              ],
+              "title": "ComponentDefinitions",
+              "type": "table"
+            },
+            {
+              "datasource": {
+                "type": "marcusolsson-json-datasource",
+                "uid": "kubernetes-api"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "align": "auto",
+                    "displayMode": "auto",
+                    "inspect": false
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "Description|CUE|CustomStatus|HealthPolicy"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.inspect",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "^((?!Description).)*$"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 200
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 9
+              },
+              "id": 89,
+              "options": {
+                "footer": {
+                  "fields": "",
+                  "reducer": [
+                    "sum"
+                  ],
+                  "show": false
+                },
+                "showHeader": true
+              },
+              "pluginVersion": "8.5.3",
+              "targets": [
+                {
+                  "cacheDurationSeconds": 300,
+                  "datasource": {
+                    "type": "marcusolsson-json-datasource",
+                    "uid": "kubernetes-api"
+                  },
+                  "fields": [
+                    {
+                      "jsonPath": "$.items[*].metadata.name",
+                      "name": "Name"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.namespace",
+                      "language": "jsonpath",
+                      "name": "Namespace"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.annotations.\"definition.oam.dev/description\"",
+                      "language": "jsonata",
+                      "name": "Description"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.schematic.cue.template",
+                      "language": "jsonpath",
+                      "name": "CUE"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($exists(status.customStatus) ? status.customStatus : '')",
+                      "language": "jsonata",
+                      "name": "CustomStatus"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($exists(status.healthPolicy) ? status.healthPolicy : '')",
+                      "language": "jsonata",
+                      "name": "HealthPolicy"
+                    }
+                  ],
+                  "method": "GET",
+                  "queryParams": "",
+                  "refId": "A",
+                  "urlPath": "/apis/core.oam.dev/v1beta1/traitdefinitions"
+                }
+              ],
+              "title": "TraitDefinitions",
+              "type": "table"
+            },
+            {
+              "datasource": {
+                "type": "marcusolsson-json-datasource",
+                "uid": "kubernetes-api"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "align": "auto",
+                    "displayMode": "auto",
+                    "inspect": false
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "Description|CUE|CustomStatus|HealthPolicy"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.inspect",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "^((?!Description).)*$"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 200
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "CUE"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 600
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 24,
+                "x": 0,
+                "y": 17
+              },
+              "id": 90,
+              "options": {
+                "footer": {
+                  "fields": "",
+                  "reducer": [
+                    "sum"
+                  ],
+                  "show": false
+                },
+                "showHeader": true
+              },
+              "pluginVersion": "8.5.3",
+              "targets": [
+                {
+                  "cacheDurationSeconds": 300,
+                  "datasource": {
+                    "type": "marcusolsson-json-datasource",
+                    "uid": "kubernetes-api"
+                  },
+                  "fields": [
+                    {
+                      "jsonPath": "$.items[*].metadata.name",
+                      "name": "Name"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.namespace",
+                      "language": "jsonpath",
+                      "name": "Namespace"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.annotations.\"definition.oam.dev/description\"",
+                      "language": "jsonata",
+                      "name": "Description"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.schematic.cue.template",
+                      "language": "jsonpath",
+                      "name": "CUE"
+                    }
+                  ],
+                  "method": "GET",
+                  "queryParams": "",
+                  "refId": "A",
+                  "urlPath": "/apis/core.oam.dev/v1beta1/traitdefinitions"
+                }
+              ],
+              "title": "WorkflowStepDefinitions",
+              "type": "table"
+            }
+          ],
+          "title": "X-Definitions",
+          "type": "row"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 37
+          },
+          "id": 98,
+          "panels": [
+            {
+              "datasource": {
+                "type": "marcusolsson-json-datasource",
+                "uid": "kubernetes-api"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "align": "auto",
+                    "displayMode": "color-text",
+                    "inspect": false
+                  },
+                  "mappings": [
+                    {
+                      "options": {
+                        "running": {
+                          "color": "green",
+                          "index": 0
+                        }
+                      },
+                      "type": "value"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "text",
+                        "value": null
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 7,
+                "x": 0,
+                "y": 38
+              },
+              "id": 94,
+              "options": {
+                "footer": {
+                  "fields": "",
+                  "reducer": [
+                    "sum"
+                  ],
+                  "show": false
+                },
+                "showHeader": true
+              },
+              "pluginVersion": "8.5.3",
+              "targets": [
+                {
+                  "cacheDurationSeconds": 300,
+                  "datasource": {
+                    "type": "marcusolsson-json-datasource",
+                    "uid": "kubernetes-api"
+                  },
+                  "fields": [
+                    {
+                      "jsonPath": "$.items[*].metadata.labels.\"addons.oam.dev/name\"",
+                      "language": "jsonata",
+                      "name": "Name"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.labels.\"addons.oam.dev/version\"",
+                      "language": "jsonata",
+                      "name": "Version"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.labels.\"addons.oam.dev/registry\"",
+                      "language": "jsonata",
+                      "name": "Registry"
+                    },
+                    {
+                      "jsonPath": "$.items[*].($exists(status.status) ? status.status : '')",
+                      "language": "jsonata",
+                      "name": "Status"
+                    }
+                  ],
+                  "method": "GET",
+                  "queryParams": "",
+                  "refId": "A",
+                  "urlPath": "/apis/core.oam.dev/v1beta1/applications?labelSelector=addons.oam.dev%2Fname"
+                }
+              ],
+              "title": "Addons",
+              "type": "table"
+            },
+            {
+              "datasource": {
+                "type": "marcusolsson-json-datasource",
+                "uid": "kubernetes-api"
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "custom": {
+                    "align": "left",
+                    "displayMode": "color-text",
+                    "inspect": false
+                  },
+                  "mappings": [
+                    {
+                      "options": {
+                        "running": {
+                          "color": "green",
+                          "index": 0
+                        }
+                      },
+                      "type": "value"
+                    }
+                  ],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "text",
+                        "value": null
+                      }
+                    ]
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "#.*|WorkflowMode"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 125
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "Namespace|Name|CreateTime|Status"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.width",
+                        "value": 150
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Json"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.displayMode",
+                        "value": "json-view"
+                      },
+                      {
+                        "id": "custom.inspect",
+                        "value": true
+                      }
+                    ]
+                  },
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "options": "Namespace|Name|WorkflowMode|Status"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.filterable",
+                        "value": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 17,
+                "x": 7,
+                "y": 38
+              },
+              "id": 96,
+              "options": {
+                "footer": {
+                  "fields": "",
+                  "reducer": [
+                    "sum"
+                  ],
+                  "show": false
+                },
+                "showHeader": true
+              },
+              "pluginVersion": "8.5.3",
+              "targets": [
+                {
+                  "cacheDurationSeconds": 300,
+                  "datasource": {
+                    "type": "marcusolsson-json-datasource",
+                    "uid": "kubernetes-api"
+                  },
+                  "fields": [
+                    {
+                      "jsonPath": "$.items[*].metadata.namespace",
+                      "name": "Namespace"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.name",
+                      "language": "jsonpath",
+                      "name": "Name"
+                    },
+                    {
+                      "jsonPath": "$.items[*].metadata.creationTimestamp",
+                      "language": "jsonpath",
+                      "name": "CreateTime"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($count(components))",
+                      "language": "jsonata",
+                      "name": "#Components"
+                    },
+                    {
+                      "jsonPath": "$.items[*].spec.($count(policies))",
+                      "language": "jsonata",
+                      "name": "#Traits"
+                    },
+                    {
+                      "jsonPath": "$.items[*].status.workflow.mode",
+                      "language": "jsonata",
+                      "name": "WorkflowMode"
+                    },
+                    {
+                      "jsonPath": "$.items[*].status.workflow.($count(steps))",
+                      "language": "jsonata",
+                      "name": "#WorkflowSteps"
+                    },
+                    {
+                      "jsonPath": "$.items[*].status.status",
+                      "language": "jsonpath",
+                      "name": "Status"
+                    },
+                    {
+                      "jsonPath": "$.items[*]",
+                      "language": "jsonpath",
+                      "name": "Json"
+                    }
+                  ],
+                  "method": "GET",
+                  "queryParams": "",
+                  "refId": "A",
+                  "urlPath": "/apis/core.oam.dev/v1beta1/applications"
+                }
+              ],
+              "title": "Applications",
+              "type": "table"
+            }
+          ],
+          "title": "Applications",
+          "type": "row"
         }
       ],
       "refresh": "1m",
@@ -7504,8 +8173,8 @@ data:
             "auto_min": "10s",
             "current": {
               "selected": false,
-              "text": "3m",
-              "value": "3m"
+              "text": "5m",
+              "value": "5m"
             },
             "hide": 0,
             "name": "rate_interval",
@@ -7574,8 +8243,8 @@ data:
           {
             "current": {
               "selected": true,
-              "text": "kubernetes-nodes",
-              "value": "kubernetes-nodes"
+              "text": "kubernetes-nodes-cadvisor",
+              "value": "kubernetes-nodes-cadvisor"
             },
             "definition": "label_values(container_memory_working_set_bytes,job)",
             "hide": 0,

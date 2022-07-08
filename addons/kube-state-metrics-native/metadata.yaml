@@ -7,6 +7,9 @@ url: https://github.com/kubernetes/kube-state-metrics
 tags:
  - observability
  - kubernetes
- - metrics
+
+deployTo:
+  control_plane: true
+  runtime_cluster: true
 
 invisible: false

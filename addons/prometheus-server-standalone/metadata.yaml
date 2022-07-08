@@ -8,6 +8,9 @@ tags:
  - observability
  - kubernetes
  - prometheus
- - metrics
+
+deployTo:
+  control_plane: true
+  runtime_cluster: true
 
 invisible: false

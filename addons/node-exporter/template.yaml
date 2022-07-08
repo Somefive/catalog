@@ -12,7 +12,7 @@ spec:
           - apiVersion: v1
             kind: Namespace
             metadata:
-              name: o11n-system
+              name: o11y-system
   policies:
     - type: shared-resource
       name: shared-namespace
@@ -20,3 +20,8 @@ spec:
         rules:
           - selector:
               resourceTypes: ["Namespace"]
+    - type: topology
+      name: topology-o11y
+      properties:
+        clusterLabelSelector: {}
+        namespace: o11y-system

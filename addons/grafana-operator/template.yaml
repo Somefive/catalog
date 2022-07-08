@@ -1,18 +1,18 @@
 apiVersion: core.oam.dev/v1beta1
 kind: Application
 metadata:
-  name: kube-state-metrics
+  name: grafana-operator
   namespace: vela-system
 spec:
   components:
     - type: k8s-objects
-      name: kube-state-metrics-ns
+      name: grafana-operator-ns
       properties:
         objects:
           - apiVersion: v1
             kind: Namespace
             metadata:
-              name: o11y-system
+              name: o11n-system
   policies:
     - type: shared-resource
       name: shared-namespace
@@ -20,8 +20,3 @@ spec:
         rules:
           - selector:
               resourceTypes: ["Namespace"]
-    - type: topology
-      name: topology-o11y
-      properties:
-        clusterLabelSelector: {}
-        namespace: o11y-system
