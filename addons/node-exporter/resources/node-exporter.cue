@@ -21,7 +21,7 @@ output: {
     }
     traits: [{
         type: "command"
-        args: [
+        properties: args: [
             "--path.sysfs=/host/sys",
             "--path.rootfs=/host/root",
             "--no-collector.wifi",

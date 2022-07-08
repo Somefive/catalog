@@ -11,17 +11,13 @@ prometheusServer: {
 	properties: {
 		image: parameter["image"]
 		imagePullPolicy: parameter["imagePullPolicy"]
-        livenessProbe: {
-            httpGet: {
-                path: "/-/health"
-                port: 9090
-            }
+        livenessProbe: httpGet: {
+            path: "/-/healthy"
+            port: 9090
         }
-        readinessProbe: {
-            httpGet: {
-                path: "/-/ready"
-                port: 9090
-            }
+        readinessProbe: httpGet: {
+            path: "/-/ready"
+            port: 9090
         }
         exposeType: parameter.serviceType
         ports: [{
@@ -33,13 +29,30 @@ prometheusServer: {
             name: "storage-volume"
             mountPath: "/data"
         }]
-        volumeMounts: configMap: [{
+        _cms: [{
             name: "bootconfig-volume"
             cmName: "prometheus-server"
             mountPath: "/etc/bootconfig"
+        }, {
+            if parameter.customConfig != "" {
+                name: "custom-config-volume"
+                cmName: parameter.customConfig
+                mountPath: "/etc/custom"
+            }
         }]
+        volumeMounts: configMap: [for cm in _cms if cm.name != _|_ {cm}]
 	}
-	traits:[{
+    traits: [for trait in _traits if trait.type != _|_ {trait}]
+	_traits: [{
+        type: "command"
+        properties: args: [
+            "--config.file=/etc/config/prometheus.yml",
+            "--storage.tsdb.path=/data",
+            "--web.console.libraries=/etc/prometheus/console_libraries",
+            "--web.console.templates=/etc/prometheus/consoles",
+            "--web.enable-lifecycle",
+        ]
+    }, {
         type: "init-container"
         properties: {
             name: "init-config"
@@ -63,6 +76,19 @@ prometheusServer: {
                 name: "bootconfig-volume"
                 mountPath: "/etc/bootconfig"
             }]
+        }
+    }, {
+        if parameter.customConfig != "" {
+            type: "sidecar"
+            properties: {
+                name: "prometheus-server-configmap-reload"
+                image: "jimmidyson/configmap-reload:v0.5.0"
+                args: ["--volume-dir=/etc/custom", "--webhook-url=http://127.0.0.1:9090/-/reload"],
+                volumes: [{
+                    name: "custom-config-volume"
+                    path: "/etc/custom"
+                }]
+            }
         }
     }, {
 		type: "service-account"
