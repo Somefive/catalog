@@ -25,3 +25,34 @@ spec:
       properties:
         clusterLabelSelector: {}
         namespace: o11y-system
+    - type: topology
+      name: topology-local
+      properties:
+        clusters: ["local"]
+        namespace: o11y-system
+    - type: override
+      name: component-ns
+      properties:
+        selector: ["prometheus-server-ns"]
+    - type: override
+      name: component-prometheus
+      properties:
+        selector: ["prometheus-config", "prometheus-server", "prometheus-service"]
+    - type: override
+      name: component-thanos
+      properties:
+        selector: ["thanos-query"]
+  workflow:
+    steps:
+      - type: deploy
+        name: deploy-ns
+        properties:
+          policies: ["component-ns", "topology-o11y"]
+      - type: deploy
+        name: deploy-prometheus
+        properties:
+          policies: ["component-prometheus", "topology-o11y"]
+      - type: deploy
+        name: deploy-thanos
+        properties:
+          policies: ["component-thanos", "topology-local"]

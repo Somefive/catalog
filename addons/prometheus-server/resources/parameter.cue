@@ -14,5 +14,5 @@ parameter: {
 	// +usage=If specified, the prometheus server will mount the config map as the additional config.
 	customConfig: *"" | string
 	// +usage=If specified, thanos sidecar will be attached and ports will be exposed
-	thanosSidecar: *false | bool
+	thanos: *false | bool
 }

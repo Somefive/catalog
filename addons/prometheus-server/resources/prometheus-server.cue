@@ -1,13 +1,10 @@
-output: {
-    if parameter.externalName == "" {
-        prometheusServer
-    }
-    if parameter.externalName != "" {
-        prometheusExternal
-    }
+if parameter.externalName == "" {
+    output: prometheusServer
 }
+
 prometheusServer: {
 	type: "webservice"
+    dependsOn: ["prometheus-config"]
 	properties: {
 		image: parameter["image"]
 		imagePullPolicy: parameter["imagePullPolicy"]
@@ -19,9 +16,7 @@ prometheusServer: {
             path: "/-/ready"
             port: 9090
         }
-        exposeType: parameter.serviceType
         ports: [{
-            expose: parameter.serviceType != ""
             name: "http"
             port: 9090
         }]
@@ -91,6 +86,44 @@ prometheusServer: {
             }
         }
     }, {
+        if parameter.thanos {
+            type: "json-patch"
+            properties: {
+                operations: [{
+                    op: "add"
+                    path: "/spec/template/spec/containers/-"
+                    value: {
+                        name: "thanos"
+                        image: "quay.io/thanos/thanos:v0.8.0"
+                        args: ["sidecar", "--tsdb.path=/data", "--prometheus.url=http://127.0.0.1:9090"]
+                        env: [{
+                            name: "POD_NAME"
+                            valueFrom: fieldRef: fieldPath: "metadata.name"
+                        }]
+                        ports: [{
+                            name: "http-sidecar"
+                            containerPort: 10902
+                        }, {
+                            name: "grpc"
+                            containerPort: 10901
+                        }]
+                        livenessProbe: httpGet: {
+                            port: 10902
+                            path: "/-/healthy"
+                        }
+                        readinessProbe: httpGet: {
+                            port: 10902
+                            path: "/-/ready"
+                        }
+                        volumeMounts: [{
+                            name: "storage-volume"
+                            mountPath: "/data"
+                        }]
+                    }
+                }]
+            }
+        }
+    }, {
 		type: "service-account"
 		properties: {
             name: "prometheus-server"
@@ -125,17 +158,12 @@ _clusterPrivileges: [{
     resources: ["deployments"]
     resourceNames: ["prometheus-server"]
     verbs: ["get"]
+}, {
+    apiGroups: ["cluster.core.oam.dev"]
+    resources: ["clustergateways", "clustergateways/proxy"]
+    verbs: ["get", "list"]
+}, {
+    apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list"]
 }]
-
-prometheusExternal: {
-    type: "k8s-objects"
-    properties: objects: [{
-        apiVersion: "v1"
-        kind:       "Service"
-        metadata: name: "prometheus-server"
-        spec: {
-            type: "ExternalName"
-            externalName: parameter.externalName
-        }
-    }]
-}
