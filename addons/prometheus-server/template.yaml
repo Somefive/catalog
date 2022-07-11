@@ -37,7 +37,7 @@ spec:
     - type: override
       name: component-prometheus
       properties:
-        selector: ["prometheus-config", "prometheus-server", "prometheus-service"]
+        selector: ["prometheus-config", "prometheus-server"]
     - type: override
       name: component-thanos
       properties:

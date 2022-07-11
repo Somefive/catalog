@@ -6,6 +6,20 @@ This addon installs the minimal core server of Prometheus into clusters.
 
 ## Installation
 
+Install prometheus server into all clusters.
+
 ```shell
 vela addon enable prometheus-server
+```
+
+Install prometheus server with custom config in ConfigMap. (This needs the target ConfigMap exists in the namespace o11y-system in all clusters.)
+
+```shell
+vela addon enable prometheus-server customConfig=prometheus-custom-config
+```
+
+Install prometheus server with thanos sidecar and query. This will help you get the aggregated query interface across all clusters.
+
+```shell
+vela addon enable prometheus-server thanos=true
 ```

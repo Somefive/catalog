@@ -1,8 +1,4 @@
-if parameter.externalName == "" {
-    output: prometheusConfig
-}
-
-prometheusConfig: {
+output: {
     type: "k8s-objects"
     properties: objects: [{
         apiVersion: "v1"

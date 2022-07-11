@@ -1,8 +1,4 @@
-if parameter.externalName == "" {
-    output: prometheusServer
-}
-
-prometheusServer: {
+output: {
 	type: "webservice"
     dependsOn: ["prometheus-config"]
 	properties: {
@@ -138,6 +134,25 @@ prometheusServer: {
         properties: {
             cpu: parameter["cpu"]
             memory: parameter["memory"]
+        }
+    }, {
+        type: "expose"
+        properties: {
+            _ports: [{
+                if !parameter.thanos {
+                    port: 9090
+                }
+            }, {
+                if parameter.thanos {
+                    port: 10902
+                }
+            }, {
+                if parameter.thanos {
+                    port: 10901
+                }
+            }]
+            port: [for p in _ports if p.port != _|_ {p.port}]
+            type: parameter.serviceType
         }
     }]
 }
