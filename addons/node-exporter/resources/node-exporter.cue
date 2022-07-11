@@ -30,8 +30,15 @@ output: {
             "--collector.netclass.ignored-devices=^(veth.*)$",
         ]
     }, {
-        type: "prometheus-scrape"
-        properties: port: 9100
+        type: "expose"
+        properties: {
+            port: [9100]
+            annotations: {
+                "prometheus.io/port": "8080"
+                "prometheus.io/scrape": "true"
+                "prometheus.io/path": "/metrics"
+            }
+        }
     }, {
         type: "resource"
         properties: {

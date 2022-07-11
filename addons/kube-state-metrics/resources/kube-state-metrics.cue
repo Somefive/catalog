@@ -31,7 +31,15 @@ output: {
 			}]
 		}
 	}, {
-        type: "prometheus-scrape"
+        type: "expose"
+        properties: {
+            port: [8080]
+            annotations: {
+                "prometheus.io/port": "8080"
+                "prometheus.io/scrape": "true"
+                "prometheus.io/path": "/metrics"
+            }
+        }
     }, {
         type: "resource"
         properties: {
