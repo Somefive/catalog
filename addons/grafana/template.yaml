@@ -1,0 +1,81 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: grafana
+  namespace: vela-system
+spec:
+  components:
+    - type: k8s-objects
+      name: grafana-ns
+      properties:
+        objects:
+          - apiVersion: v1
+            kind: Namespace
+            metadata:
+              name: o11y-system
+  policies:
+    - type: shared-resource
+      name: shared-namespace
+      properties:
+        rules:
+          - selector:
+              resourceTypes: ["Namespace"]
+    - type: topology
+      name: topology
+      properties:
+        clusters: ["local"]
+        namespace: o11y-system
+    - type: override
+      name: ns
+      properties:
+        selector: ["grafana-ns"]
+    - type: override
+      name: dashboards
+      properties:
+        selector: ["grafana-dashboards"]
+    - type: override
+      name: deploys
+      properties:
+        selector: ["grafana-admin", "grafana"]
+    - type: debug
+      name: debug
+  workflow:
+    steps:
+      - type: deploy
+        name: deploy-ns
+        properties:
+          policies: ["ns", "topology"]
+      - type: step-group
+        name: bootstrap-datasource-config
+        subSteps:
+          - type: prometheus-auto-discovery
+            name: prometheus-auto-discovery
+          - type: install-kubernetes-api-datasource
+            name: install-kubernetes-api-datasource
+          - type: deploy
+            name: deploy-dashboards
+            properties: 
+              policies: ["dashboards", "topology"]
+      - type: step-group
+        name: prepare-provisioning
+        subSteps:
+          - type: merge-configmaps
+            name: provision-datasources
+            properties:
+              sourceLabels:
+                "o11y.oam.dev/config": "grafana-datasource"
+              sourceNamespace: o11y-system
+              targetName: grafana-datasources
+              targetNamespace: o11y-system
+          - type: merge-configmaps
+            name: provision-dashboards
+            properties:
+              sourceLabels:
+                "o11y.oam.dev/config": "grafana-dashboard-model"
+              sourceNamespace: o11y-system
+              targetName: grafana-dashboards-internal
+              targetNamespace: o11y-system
+      - type: deploy
+        name: deploy
+        properties:
+          policies: ["deploys", "topology"]
