@@ -1,0 +1,15 @@
+name: loki
+version: v0.1.0
+description: TODO
+icon: 
+url: 
+
+tags:
+ - observability
+ - kubernetes
+
+deployTo:
+  control_plane: true
+  runtime_cluster: false
+
+invisible: false

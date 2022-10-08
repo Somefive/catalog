@@ -1,0 +1,14 @@
+name: example-app
+version: v0.1.0
+description: Example app description.
+icon: https://wikitech.wikimedia.org/wiki/File:Kubernetes-icon-color.svg
+url: https://wikitech.wikimedia.org/wiki/File:Kubernetes-icon-color.svg
+
+tags:
+- Vela
+- Demo
+
+invisible: false
+
+system:
+  vela: ">=v1.5.0-beta.4"

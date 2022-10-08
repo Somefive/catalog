@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-headless
+  namespace: o11n-system
+  labels:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki
+spec:
+  clusterIP: None
+  ports:
+    - port: 3100
+      protocol: TCP
+      name: http-metrics
+      targetPort: http-metrics
+  selector:
+    app.kubernetes.io/name: loki
+    app.kubernetes.io/instance: loki

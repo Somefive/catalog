@@ -1,0 +1,15 @@
+name: node-exporter
+version: v0.1.0
+description: 
+icon: 
+url: 
+
+tags:
+ - observability
+ - kubernetes
+
+deployTo:
+  control_plane: true
+  runtime_cluster: true
+
+invisible: false
