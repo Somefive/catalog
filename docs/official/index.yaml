@@ -1,0 +1,553 @@
+apiVersion: v1
+entries:
+  cert-manager:
+  - annotations:
+      system.vela: '>=v1.7.0-alpha.1'
+    created: "2023-05-29T14:15:57.708908+08:00"
+    description: Automatically provision and manage TLS certificates in Kubernetes
+    home: https://github.com/cert-manager/cert-manager
+    icon: https://raw.githubusercontent.com/cert-manager/cert-manager/master/logo/logo-small.png
+    keywords:
+    - Let's Encrypt
+    - TLS
+    - Certificate
+    - ACME
+    name: cert-manager
+    urls:
+    - https://kubevela.github.io/catalog/official/cert-manager-2.1.0.tgz
+    version: 2.1.0
+  chartmuseum:
+  - created: "2023-05-29T14:15:57.723731+08:00"
+    description: ChartMuseum is an open-source and easy to deploy Helm Chart Repository
+      server.
+    home: https://chartmuseum.com
+    icon: https://raw.githubusercontent.com/helm/chartmuseum/main/logo2.png
+    keywords:
+    - helm
+    - registry
+    - helm_chart
+    - chartmuseum
+    name: chartmuseum
+    urls:
+    - https://kubevela.github.io/catalog/official/chartmuseum-4.1.0.tgz
+    version: 4.1.0
+  cloudshell:
+  - created: "2023-05-29T14:15:57.748502+08:00"
+    description: A Friendly Kubernetes CloudShell (Web Terminal)
+    home: https://github.com/cloudtty/cloudtty
+    keywords:
+    - Official
+    name: cloudshell
+    urls:
+    - https://kubevela.github.io/catalog/official/cloudshell-0.0.8.tgz
+    version: 0.0.8
+  dex:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:57.770397+08:00"
+    description: Enable dex for login
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/dex/horizontal/color/dex-horizontal-color.png
+    keywords:
+    - Official
+    - OAuth
+    name: dex
+    urls:
+    - https://kubevela.github.io/catalog/official/dex-0.6.6.tgz
+    version: 0.6.6
+  flink-kubernetes-operator:
+  - annotations:
+      system.vela: '>=1.5.0-beta.3'
+    created: "2023-05-29T14:15:57.778581+08:00"
+    description: A Kubernetes operator for Apache Flink
+    home: https://github.com/apache/flink-kubernetes-operator
+    icon: https://flink.apache.org/img/logo/png/500/flink_squirrel_500.png
+    keywords:
+    - apache/flink-kubernetes-operator
+    name: flink-kubernetes-operator
+    urls:
+    - https://kubevela.github.io/catalog/official/flink-kubernetes-operator-1.3.1.tgz
+    version: 1.3.1
+  fluxcd:
+  - annotations:
+      system.vela: '>=1.9.0-alpha.2'
+    created: "2023-05-29T14:15:57.785072+08:00"
+    description: Extended workload to do continuous and progressive delivery
+    home: https://fluxcd.io
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/flux/horizontal/color/flux-horizontal-color.png
+    keywords:
+    - Official
+    - Extended Workload
+    - GitOps
+    - Helm
+    name: fluxcd
+    urls:
+    - https://kubevela.github.io/catalog/official/fluxcd-2.3.5.tgz
+    version: 2.3.5
+  grafana:
+  - annotations:
+      system.vela: '>=v1.8.0-alpha.3'
+    created: "2023-05-29T14:15:57.821037+08:00"
+    description: Grafana is a multi-platform open source analytics and interactive
+      visualization web application. It provides charts, graphs, and alerts for the
+      web when connected to supported data sources.
+    home: https://grafana.com/
+    icon: https://artifacthub.io/image/e69a4034-cfe7-4fa8-95ce-df3837f5d717@1x
+    keywords:
+    - Official
+    - Observability
+    - Kubernetes
+    - Grafana
+    name: grafana
+    urls:
+    - https://kubevela.github.io/catalog/official/grafana-v0.4.2.tgz
+    version: v0.4.2
+  ingress-nginx:
+  - created: "2023-05-29T14:15:57.884044+08:00"
+    description: gateway for serving ingress traffic
+    keywords:
+    - network
+    - gateway
+    name: ingress-nginx
+    urls:
+    - https://kubevela.github.io/catalog/official/ingress-nginx-1.1.1.tgz
+    version: 1.1.1
+  keda:
+  - created: "2023-05-29T14:15:57.890132+08:00"
+    description: An AutoScaler addon for KubeVela.
+    icon: https://keda.sh/img/logos/keda-horizontal-color.png
+    keywords:
+    - Scaler
+    - AutoScaler
+    name: keda
+    urls:
+    - https://kubevela.github.io/catalog/official/keda-2.8.2.tgz
+    version: 2.8.2
+  kruise-rollout:
+  - annotations:
+      system.kubernetes: '>=1.19.0-0'
+      system.vela: '>=1.8.0-alpha.3'
+    created: "2023-05-29T14:15:57.900958+08:00"
+    description: Rollout workload by kruise controller
+    home: https://github.com/openkruise/rollouts
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/openkruise/stacked/color/openkruise-stacked-color.png
+    keywords:
+    - Official
+    - Rollout
+    name: kruise-rollout
+    urls:
+    - https://kubevela.github.io/catalog/official/kruise-rollout-1.5.1.tgz
+    version: 1.5.1
+  kube-state-metrics:
+  - annotations:
+      system.vela: '>=v1.7.0'
+    created: "2023-05-29T14:15:58.00244+08:00"
+    description: A simple service that listens to the Kubernetes API server and generates
+      metrics about the state of the objects.
+    home: https://github.com/kubernetes/kube-state-metrics
+    icon: https://artifacthub.io/image/81797fec-309d-4380-a527-68f1c9e1dcfb@1x
+    keywords:
+    - Official
+    - Observability
+    - Kubernetes
+    - Metrics
+    - Prometheus
+    name: kube-state-metrics
+    urls:
+    - https://kubevela.github.io/catalog/official/kube-state-metrics-v0.3.0.tgz
+    version: v0.3.0
+  kube-trigger:
+  - annotations:
+      system.vela: '>=1.6.0'
+    created: "2023-05-29T14:15:58.008029+08:00"
+    description: kube-trigger watches events and triggers actions.
+    home: https://github.com/kubevela/kube-trigger
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    - Continuous Delivery
+    - Event Trigger
+    name: kube-trigger
+    urls:
+    - https://kubevela.github.io/catalog/official/kube-trigger-1.0.0.tgz
+    version: 1.0.0
+  kubevela-io:
+  - created: "2023-05-29T14:15:58.013859+08:00"
+    description: kubevela.io as an addon for users' convenience
+    keywords:
+    - Official
+    name: kubevela-io
+    urls:
+    - https://kubevela.github.io/catalog/official/kubevela-io-1.3.0.tgz
+    version: 1.3.0
+  loki:
+  - annotations:
+      system.vela: '>=v1.7.0'
+    created: "2023-05-29T14:15:58.01958+08:00"
+    description: Loki is a log aggregation system designed to store and query logs
+      from all your applications and infrastructure.
+    home: https://grafana.com/oss/loki/
+    icon: https://grafana.com/static/img/logos/logo-loki.svg
+    keywords:
+    - Official
+    - Observability
+    - Kubernetes
+    - Logging
+    name: loki
+    urls:
+    - https://kubevela.github.io/catalog/official/loki-v0.3.1.tgz
+    version: v0.3.1
+  model-serving:
+  - annotations:
+      system.kubernetes: <1.22
+    created: "2023-05-29T14:15:58.056679+08:00"
+    description: Enable serving for models
+    keywords:
+    - ai
+    - serving
+    - alpha
+    name: model-serving
+    urls:
+    - https://kubevela.github.io/catalog/official/model-serving-1.0.0.tgz
+    version: 1.0.0
+  model-training:
+  - created: "2023-05-29T14:15:58.061476+08:00"
+    description: Enable training for models
+    keywords:
+    - ai
+    - training
+    - alpha
+    name: model-training
+    urls:
+    - https://kubevela.github.io/catalog/official/model-training-1.0.1.tgz
+    version: 1.0.1
+  mysql-exporter:
+  - created: "2023-05-29T14:15:58.066055+08:00"
+    description: Prometheus exporter for MySQL server metrics.
+    home: https://github.com/prometheus/mysqld_exporter
+    icon: https://www.mysql.com/common/logos/powered-by-mysql-167x86.png
+    keywords:
+    - Observability
+    name: mysql-exporter
+    urls:
+    - https://kubevela.github.io/catalog/official/mysql-exporter-0.0.1.tgz
+    version: 0.0.1
+  netlify:
+  - created: "2023-05-29T14:15:58.072126+08:00"
+    description: Interact with Netlify from the comfort of your CLI.
+    home: https://github.com/netlify/cli
+    icon: https://raw.githubusercontent.com/netlify/cli/main/cli.png
+    keywords:
+    - extended_workload
+    name: netlify
+    urls:
+    - https://kubevela.github.io/catalog/official/netlify-10.5.2.tgz
+    version: 10.5.2
+  node-exporter:
+  - annotations:
+      system.vela: '>=v1.7.0'
+    created: "2023-05-29T14:15:58.076424+08:00"
+    description: Prometheus exporter for hardware and OS metrics exposed by *NIX kernels,
+      written in Go with pluggable metric collectors.
+    home: https://github.com/prometheus/node_exporter
+    icon: https://artifacthub.io/image/0503add5-3fce-4b63-bbf3-b9f649512a86@1x
+    keywords:
+    - Observability
+    - Kubernetes
+    - Metrics
+    - Prometheus
+    name: node-exporter
+    urls:
+    - https://kubevela.github.io/catalog/official/node-exporter-v0.3.0.tgz
+    version: v0.3.0
+  o11y-definitions:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.118002+08:00"
+    description: Grafana definitions is an auxiliary addon that creates definitions
+      for grafana installation and use.
+    home: https://grafana.com/
+    icon: https://artifacthub.io/image/e69a4034-cfe7-4fa8-95ce-df3837f5d717@1x
+    keywords:
+    - Official
+    - Observability
+    - Kubernetes
+    - Grafana
+    name: o11y-definitions
+    urls:
+    - https://kubevela.github.io/catalog/official/o11y-definitions-v0.2.6.tgz
+    version: v0.2.6
+  ocm-gateway-manager-addon:
+  - created: "2023-05-29T14:15:58.126891+08:00"
+    description: ocm-gateway-manager-addon is the OCM addon automates the cluster-gateway
+      apiserver.
+    home: https://github.com/open-cluster-management-io/OCM
+    icon: https://github.com/open-cluster-management-io/OCM/raw/main/assets/ocm-logo.png
+    keywords:
+    - multicluster
+    name: ocm-gateway-manager-addon
+    urls:
+    - https://kubevela.github.io/catalog/official/ocm-gateway-manager-addon-1.4.0.tgz
+    version: 1.4.0
+  ocm-hub-control-plane:
+  - created: "2023-05-29T14:15:58.13585+08:00"
+    description: ocm-hub-control-plane can install OCM hub control plane to the central
+      cluster.
+    home: https://github.com/open-cluster-management-io/OCM
+    icon: https://github.com/open-cluster-management-io/OCM/raw/main/assets/ocm-logo.png
+    keywords:
+    - multicluster
+    name: ocm-hub-control-plane
+    urls:
+    - https://kubevela.github.io/catalog/official/ocm-hub-control-plane-0.6.0.tgz
+    version: 0.6.0
+  prometheus-server:
+  - annotations:
+      system.vela: '>=v1.7.0'
+    created: "2023-05-29T14:15:58.173103+08:00"
+    description: An open-source monitoring system with a dimensional data model, flexible
+      query language, efficient time series database and modern alerting approach.
+    home: https://prometheus.io/
+    icon: https://artifacthub.io/image/0503add5-3fce-4b63-bbf3-b9f649512a86@1x
+    keywords:
+    - Official
+    - Observability
+    - Kubernetes
+    - Prometheus
+    - Metrics
+    name: prometheus-server
+    urls:
+    - https://kubevela.github.io/catalog/official/prometheus-server-v0.3.2.tgz
+    version: v0.3.2
+  rollout:
+  - annotations:
+      system.vela: '>=v1.3.0-alpha.1'
+    created: "2023-05-29T14:15:58.182429+08:00"
+    description: Provides basic batch publishing capability.
+    home: https://kubevela.io/docs/end-user/traits/rollout
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - extended_workload
+    - rollout
+    - GA
+    name: rollout
+    urls:
+    - https://kubevela.github.io/catalog/official/rollout-1.3.2.tgz
+    version: 1.3.2
+  terraform:
+  - created: "2023-05-29T14:15:58.188214+08:00"
+    description: Terraform Controller is a Kubernetes Controller for Terraform.
+    home: https://github.com/oam-dev/terraform-controller
+    icon: https://static.kubevela.net/images/logos/terraform.png
+    keywords:
+    - Official
+    - IaC
+    - Cloud Resource
+    name: terraform
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-1.1.0.tgz
+    version: 1.1.0
+  terraform-alibaba:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.194819+08:00"
+    description: Kubernetes Terraform Controller for Alibaba Cloud
+    home: https://registry.terraform.io/providers/aliyun/alicloud/latest
+    icon: https://avatars3.githubusercontent.com/aliyun
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-alibaba
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-alibaba-1.0.6.tgz
+    version: 1.0.6
+  terraform-aws:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.220502+08:00"
+    description: Kubernetes Terraform Controller for AWS
+    home: https://registry.terraform.io/providers/hashicorp/aws/latest
+    icon: https://static.kubevela.net/images/logos/aws.png
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-aws
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-aws-1.0.3.tgz
+    version: 1.0.3
+  terraform-azure:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.250169+08:00"
+    description: Kubernetes Terraform Controller for Azure
+    home: https://registry.terraform.io/providers/hashicorp/azurerm/latest
+    icon: https://avatars3.githubusercontent.com/azure
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-azure
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-azure-1.0.3.tgz
+    version: 1.0.3
+  terraform-baidu:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.258323+08:00"
+    description: Kubernetes Terraform Controller Provider for Baidu Cloud
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-baidu
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-baidu-1.0.3.tgz
+    version: 1.0.3
+  terraform-ec:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.296051+08:00"
+    description: Kubernetes Terraform Controller Provider for Elastic Cloud
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-ec
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-ec-1.0.2.tgz
+    version: 1.0.2
+  terraform-gcp:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.301764+08:00"
+    description: Kubernetes Terraform Controller Provider for Google Cloud Platform
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-gcp
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-gcp-1.0.3.tgz
+    version: 1.0.3
+  terraform-tencent:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.311858+08:00"
+    description: Kubernetes Terraform Controller Provider for Tencent Cloud
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-tencent
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-tencent-1.0.3.tgz
+    version: 1.0.3
+  terraform-ucloud:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.316869+08:00"
+    description: Kubernetes Terraform Controller Provider for UCloud
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-ucloud
+    urls:
+    - https://kubevela.github.io/catalog/official/terraform-ucloud-1.0.3.tgz
+    version: 1.0.3
+  traefik:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.6'
+    created: "2023-05-29T14:15:58.321869+08:00"
+    description: The Cloud Native Application Proxy, Simplify networking complexity
+      while designing, deploying, and operating applications.
+    home: https://traefik.io/traefik
+    icon: https://traefik.io/static/traefik-proxy-logo--white-82153be41e0ce620a921b4bce974f6d8.svg
+    keywords:
+    - Official
+    - Gateway
+    name: traefik
+    urls:
+    - https://kubevela.github.io/catalog/official/traefik-v2.6.3-2.tgz
+    version: v2.6.3-2
+  trivy-operator:
+  - annotations:
+      system.vela: '>=v1.7.0-alpha.1'
+    created: "2023-05-29T14:15:58.328072+08:00"
+    description: Kubernetes Operator based on the open-source container vulnerability
+      scanner Trivy
+    home: https://github.com/aquasecurity/trivy-operator
+    icon: https://raw.githubusercontent.com/aquasecurity/trivy-operator/main/docs/images/trivy-operator-logo.png
+    keywords:
+    - trivy-operator
+    name: trivy-operator
+    urls:
+    - https://kubevela.github.io/catalog/official/trivy-operator-3.1.1.tgz
+    version: 3.1.1
+  vegeta:
+  - created: "2023-05-29T14:15:58.364503+08:00"
+    description: Vegeta is a versatile HTTP load testing tool built out of a need
+      to drill HTTP services with a constant request rate. It can be used both as
+      a command line utility and a library.
+    home: https://github.com/tsenart/vegeta
+    icon: https://camo.githubusercontent.com/faf9be097f4731212debdd24210c750b2dc276d0a17df19c6a8ac026427c09e9/687474703a2f2f666330392e64657669616e746172742e6e65742f667334392f692f323030392f3139382f632f632f73736a325f7665676574615f62795f7472756e6b7332342e6a7067
+    keywords:
+    - extended_trait
+    name: vegeta
+    urls:
+    - https://kubevela.github.io/catalog/official/vegeta-12.8.4.tgz
+    version: 12.8.4
+  vela-core-shard-manager:
+  - annotations:
+      system.vela: '>=v1.8.0-alpha.2'
+    created: "2023-05-29T14:15:58.369097+08:00"
+    description: The manager for vela-core.
+    home: https://github.com/kubevela/kubevela
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    name: vela-core-shard-manager
+    urls:
+    - https://kubevela.github.io/catalog/official/vela-core-shard-manager-v0.1.1.tgz
+    version: v0.1.1
+  vela-prism:
+  - annotations:
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:15:58.377454+08:00"
+    description: Prism provides API Extensions to the core KubeVela. It works as a
+      Kubernetes Aggregated API Server.
+    home: https://github.com/kubevela/prism
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    name: vela-prism
+    urls:
+    - https://kubevela.github.io/catalog/official/vela-prism-v1.5.0.tgz
+    version: v1.5.0
+  vela-workflow:
+  - annotations:
+      system.vela: '>=v1.7.0-alpha.1'
+    created: "2023-05-29T14:15:58.414205+08:00"
+    description: vela-workflow provides the capability to run a standalone workflow
+    home: https://github.com/kubevela/workflow
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    name: vela-workflow
+    urls:
+    - https://kubevela.github.io/catalog/official/vela-workflow-v0.5.0.tgz
+    version: v0.5.0
+  velaux:
+  - annotations:
+      system.vela: '>=v1.8.0'
+    created: "2023-05-29T14:15:58.450583+08:00"
+    description: KubeVela User Experience (UX). An extensible, application-oriented
+      delivery and management Platform.
+    home: https://kubevela.io
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    - Dashboard
+    name: velaux
+    urls:
+    - https://kubevela.github.io/catalog/official/velaux-v1.8.1.tgz
+    version: v1.8.1
+generated: "0001-01-01T00:00:00Z"

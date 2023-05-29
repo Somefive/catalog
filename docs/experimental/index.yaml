@@ -1,0 +1,553 @@
+apiVersion: v1
+entries:
+  argocd:
+  - created: "2023-05-29T14:16:30.945545+08:00"
+    description: Declarative continuous deployment for Kubernetes.
+    home: https://github.com/argoproj/argo-cd
+    icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+    keywords:
+    - argocd
+    - gitops
+    - v2.3.3
+    - helm_support
+    name: argocd
+    urls:
+    - https://kubevela.github.io/catalog/experimental/argocd-0.1.0.tgz
+    version: 0.1.0
+  azure-keyvault-csi:
+  - annotations:
+      system.vela: '>=v1.6.0'
+    created: "2023-05-29T14:16:30.982791+08:00"
+    description: Trait providing access to Azure Keyvault values via csi driver
+    home: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+    keywords:
+    - alpha
+    - azure
+    - keyvault
+    - secret
+    - csi
+    name: azure-keyvault-csi
+    urls:
+    - https://kubevela.github.io/catalog/experimental/azure-keyvault-csi-0.0.3.tgz
+    version: 0.0.3
+  backstage:
+  - created: "2023-05-29T14:16:31.004413+08:00"
+    description: Backstage addon for KubeVela.
+    icon: https://backstage.io/logo_assets/svg/Icon_Teal.svg
+    keywords:
+    - Backstage
+    name: backstage
+    urls:
+    - https://kubevela.github.io/catalog/experimental/backstage-1.1.1.tgz
+    version: 1.1.1
+  bytebase:
+  - created: "2023-05-29T14:16:31.012607+08:00"
+    description: This addon adds bytebase to the kubevela to be used across the applications
+      installed in kubevela.
+    home: https://www.bytebase.com/
+    icon: https://raw.githubusercontent.com/bytebase/bytebase/main/frontend/public/favicon.ico
+    keywords:
+    - bytebase
+    name: bytebase
+    urls:
+    - https://kubevela.github.io/catalog/experimental/bytebase-1.0.0.tgz
+    version: 1.0.0
+  canary-rollout-istio:
+  - created: "2023-05-29T14:16:31.018501+08:00"
+    description: Enable service mash and managing triffic shiffting in workflow.
+    home: https://istio.io/
+    icon: https://github.com/istio/istio/raw/master/logo/istio-bluelogo-whitebackground-unframed.svg
+    keywords:
+    - service-mesh
+    - rollout
+    name: canary-rollout-istio
+    urls:
+    - https://kubevela.github.io/catalog/experimental/canary-rollout-istio-1.0.2.tgz
+    version: 1.0.2
+  chaosblade-operator:
+  - annotations:
+      system.vela: '>=1.5.0'
+    created: "2023-05-29T14:16:31.024172+08:00"
+    description: A Chaos Engineering Tool for Cloud-native
+    home: https://github.com/chaosblade-io/chaosblade-operator
+    icon: https://chaosblade.oss-cn-hangzhou.aliyuncs.com/doc/image/chaosblade-logo.png
+    keywords:
+    - chaosblade operator for kubernetes experiments
+    name: chaosblade-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/chaosblade-operator-1.7.0.tgz
+    version: 1.7.0
+  clickhouse:
+  - annotations:
+      system.vela: '>=v1.6.0-alpha.1'
+    created: "2023-05-29T14:16:31.030967+08:00"
+    description: provides ClickHouse instance by clickhouse-operator.
+    home: https://clickhouse.com/
+    icon: https://raw.githubusercontent.com/ClickHouse/clickhouse-presentations/master/images/logo-400x240.png
+    keywords:
+    - ClickHouse
+    name: clickhouse
+    urls:
+    - https://kubevela.github.io/catalog/experimental/clickhouse-1.0.1.tgz
+    version: 1.0.1
+  crane:
+  - created: "2023-05-29T14:16:31.070955+08:00"
+    description: Crane (FinOps Crane) is an open-source project which manages cloud
+      resource on Kubernetes stack, it is inspired by FinOps concepts.
+    home: https://docs.gocrane.io/
+    icon: https://raw.githubusercontent.com/gocrane/crane/main/docs/images/crane.png
+    keywords:
+    - finops
+    - monitoring
+    - prediction
+    - time-series
+    - analytics
+    - cost-optimization
+    - autoscaling
+    name: crane
+    urls:
+    - https://kubevela.github.io/catalog/experimental/crane-0.5.0.tgz
+    version: 0.5.0
+  cronhpa:
+  - created: "2023-05-29T14:16:31.07833+08:00"
+    description: An cron hpa addon for KubeVela.
+    keywords:
+    - Scaler
+    - AutoScaler
+    - Cron
+    name: cronhpa
+    urls:
+    - https://kubevela.github.io/catalog/experimental/cronhpa-1.4.1.tgz
+    version: 1.4.1
+  crossplane:
+  - created: "2023-05-29T14:16:31.083672+08:00"
+    description: Crossplane assembles infrastructure from multiple vendors
+    home: https://crossplane.io/
+    keywords:
+    - IaC
+    - cloud resource
+    name: crossplane
+    urls:
+    - https://kubevela.github.io/catalog/experimental/crossplane-0.0.1.tgz
+    version: 0.0.1
+  crossplane-aws:
+  - created: "2023-05-29T14:16:31.103364+08:00"
+    description: AWS Provider for Crossplane
+    home: https://crossplane.io/
+    icon: https://static.kubevela.net/images/logos/aws.png
+    keywords:
+    - Crossplane provider
+    name: crossplane-aws
+    urls:
+    - https://kubevela.github.io/catalog/experimental/crossplane-aws-0.0.1.tgz
+    version: 0.0.1
+  dapr:
+  - created: "2023-05-29T14:16:31.108256+08:00"
+    description: Distributed application sidecar provider standard interface
+    home: https://dapr.io/
+    icon: https://raw.githubusercontent.com/dapr/dapr/master/img/dapr_logo.svg
+    keywords:
+    - data-mesh
+    - standard-interface
+    name: dapr
+    urls:
+    - https://kubevela.github.io/catalog/experimental/dapr-1.0.0.tgz
+    version: 1.0.0
+  envoy-gateway:
+  - annotations:
+      system.kubernetes: '>=v1.24'
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:16:31.112733+08:00"
+    description: Manages Envoy Proxy as a standalone or Kubernetes-based application
+      gateway.
+    home: https://gateway.envoyproxy.io/
+    icon: https://raw.githubusercontent.com/envoyproxy/envoy-website/main/img/envoy-icon.svg
+    keywords:
+    - Gateway
+    name: envoy-gateway
+    urls:
+    - https://kubevela.github.io/catalog/experimental/envoy-gateway-v0.1.0.tgz
+    version: v0.1.0
+  example:
+  - created: "2023-05-29T14:16:31.15582+08:00"
+    description: gateway for serving ingress traffic
+    keywords:
+    - only_example
+    name: example
+    urls:
+    - https://kubevela.github.io/catalog/experimental/example-1.2.0.tgz
+    version: 1.2.0
+  example-cue:
+  - created: "2023-05-29T14:16:31.164562+08:00"
+    description: gateway for serving ingress traffic
+    keywords:
+    - only_example
+    name: example-cue
+    urls:
+    - https://kubevela.github.io/catalog/experimental/example-cue-1.1.0.tgz
+    version: 1.1.0
+  gateway-traits:
+  - annotations:
+      system.vela: '>=v1.2.4'
+    created: "2023-05-29T14:16:31.171953+08:00"
+    description: traits(HttpRoute, HttpsRoute, tcpRoute) for gateway
+    keywords:
+    - Gateway
+    - Trait
+    name: gateway-traits
+    urls:
+    - https://kubevela.github.io/catalog/experimental/gateway-traits-v0.0.1.tgz
+    version: v0.0.1
+  harbor:
+  - annotations:
+      system.vela: '>=v1.6.0'
+    created: "2023-05-29T14:16:31.209635+08:00"
+    description: provides image registry powered by harbor.
+    home: https://goharbor.io/
+    icon: https://goharbor.io/img/logos/harbor-horizontal-color.png
+    keywords:
+    - harbor
+    - image registry
+    name: harbor
+    urls:
+    - https://kubevela.github.io/catalog/experimental/harbor-0.0.1.tgz
+    version: 0.0.1
+  istio:
+  - created: "2023-05-29T14:16:31.214244+08:00"
+    description: Enable service mash and managing triffic shiffting in workflow.
+    home: https://istio.io/
+    icon: https://github.com/istio/istio/raw/master/logo/istio-bluelogo-whitebackground-unframed.svg
+    keywords:
+    - service-mesh
+    name: istio
+    urls:
+    - https://kubevela.github.io/catalog/experimental/istio-1.0.2.tgz
+    version: 1.0.2
+  istio-gateway:
+  - annotations:
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:16:31.218861+08:00"
+    description: Simplify observability, traffic management, security, and policy
+      with the leading service mesh.
+    home: https://istio.io/
+    icon: https://github.com/istio/istio/raw/master/logo/istio-bluelogo-whitebackground-unframed.svg
+    keywords:
+    - Official
+    - Gateway
+    name: istio-gateway
+    urls:
+    - https://kubevela.github.io/catalog/experimental/istio-gateway-v1.0.0.tgz
+    version: v1.0.0
+  kafka-operator:
+  - created: "2023-05-29T14:16:31.222933+08:00"
+    description: This addon adds kafka-operator to the kubevela to be used across
+      the application installed in kubevela.
+    home: https://strimzi.io/
+    icon: https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/main/documentation/logo/strimzi_logo.png
+    keywords:
+    - kafka-operator
+    name: kafka-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/kafka-operator-1.0.0.tgz
+    version: 1.0.0
+  koordinator:
+  - created: "2023-05-29T14:16:31.22837+08:00"
+    description: This addon adds koordinator to the kubevela to be used across the
+      application installed in kubevela.
+    home: https://koordinator.sh/
+    icon: https://raw.githubusercontent.com/koordinator-sh/koordinator/main/docs/images/koordinator-logo.jpeg
+    keywords:
+    - koordinator
+    name: koordinator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/koordinator-1.1.1.tgz
+    version: 1.1.1
+  kruise:
+  - created: "2023-05-29T14:16:31.232747+08:00"
+    description: Kruise is a Kubernetes extended suite for application automations
+    home: https://openkruise.io/
+    name: kruise
+    urls:
+    - https://kubevela.github.io/catalog/experimental/kruise-1.0.0.tgz
+    version: 1.0.0
+  kruise-game:
+  - created: "2023-05-29T14:16:31.237112+08:00"
+    description: This addon adds kruise-game to the kubevela to be used across the
+      application installed in kubevela.
+    home: https://openkruise.io/kruisegame/introduction
+    icon: https://github.com/openkruise/kruise-game/blob/master/docs/images/logo.jpg
+    keywords:
+    - kruise-game
+    name: kruise-game
+    urls:
+    - https://kubevela.github.io/catalog/experimental/kruise-game-1.0.0.tgz
+    version: 1.0.0
+  minio-operator:
+  - created: "2023-05-29T14:16:31.260471+08:00"
+    description: MinIO is a High Performance Object Storage released under GNU AGPLv3
+      or later. It is API compatible with Amazon S3 cloud storage service. Use MinIO
+      to build high performance infrastructure for machine learning, analytics and
+      application data workloads.
+    home: https://min.io/
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - minio-operator
+    name: minio-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/minio-operator-1.0.0.tgz
+    version: 1.0.0
+  mongodb-operator:
+  - annotations:
+      system.vela: '>=1.5.0'
+    created: "2023-05-29T14:16:31.279929+08:00"
+    description: MongoDB Operator is an operator created in Golang to create, update,
+      and manage MongoDB standalone, replicated, and arbiter replicated setup on Kubernetes
+      and Openshift clusters. This operator is capable of doing the setup for MongoDB
+      with all the required best practices.
+    home: https://github.com/OT-CONTAINER-KIT/mongodb-operator
+    icon: https://raw.githubusercontent.com/OT-CONTAINER-KIT/mongodb-operator/main/static/mongodb-operator-logo.svg
+    keywords:
+    - NoSQL
+    name: mongodb-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/mongodb-operator-v0.3.0.tgz
+    version: v0.3.0
+  mysql-operator:
+  - created: "2023-05-29T14:16:31.284456+08:00"
+    description: A Kubernetes operator for Mysql Cluster
+    home: https://github.com/bitpoke/mysql-operator
+    keywords:
+    - bitpoke/mysql-operator
+    - v0.6.2
+    name: mysql-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/mysql-operator-v0.6.2.tgz
+    version: v0.6.2
+  nacos-operator:
+  - created: "2023-05-29T14:16:31.288496+08:00"
+    description: This addon adds nacos-operator to the kubevela to be used across
+      the application installed in kubevela.
+    home: https://nacos.io/en-us/
+    icon: https://avatars.githubusercontent.com/u/41446552?s=200&v=4
+    keywords:
+    - nacos-operator
+    name: nacos-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/nacos-operator-1.0.0.tgz
+    version: 1.0.0
+  observability:
+  - created: "2023-05-29T14:16:31.309664+08:00"
+    description: An out of the box solution for KubeVela observability
+    keywords:
+    - observability
+    name: observability
+    urls:
+    - https://kubevela.github.io/catalog/experimental/observability-1.0.0.tgz
+    version: 1.0.0
+  observability-assets:
+  - created: "2023-05-29T14:16:31.331227+08:00"
+    description: The assets for Addon Observability
+    keywords:
+    - observability-assets
+    name: observability-assets
+    urls:
+    - https://kubevela.github.io/catalog/experimental/observability-assets-1.0.0.tgz
+    version: 1.0.0
+  opentelemetry-operator:
+  - created: "2023-05-29T14:16:31.335756+08:00"
+    description: This addon adds opentelemetry-operator to the kubevela to be used
+      across the application installed in kubevela.
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    keywords:
+    - opentelemetry-operator
+    name: opentelemetry-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/opentelemetry-operator-1.0.0.tgz
+    version: 1.0.0
+  postgres-operator:
+  - created: "2023-05-29T14:16:31.339645+08:00"
+    description: This addon adds postgres-operator to the kubevela to be used by across
+      the application installed in kubevela.
+    home: https://www.postgresql.org/
+    keywords:
+    - postgres-operator
+    name: postgres-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/postgres-operator-1.0.0.tgz
+    version: 1.0.0
+  process-exporter:
+  - annotations:
+      system.vela: '>=v1.6.0-beta.1'
+    created: "2023-05-29T14:16:31.343407+08:00"
+    description: Prometheus exporter that mines /proc to report on selected processes.
+    home: https://github.com/ncabatoff/process-exporter
+    keywords:
+    - Observability
+    - Kubernetes
+    - Metrics
+    - Prometheus
+    name: process-exporter
+    urls:
+    - https://kubevela.github.io/catalog/experimental/process-exporter-v0.1.0.tgz
+    version: v0.1.0
+  pyroscope:
+  - created: "2023-05-29T14:16:31.346927+08:00"
+    description: Pyroscope is an open source platform, consisting of server and agent.
+      It allows the user to collect, store, and query the profiling data in a CPU
+      and disk efficient way.
+    home: https://github.com/pyroscope-io/pyroscope
+    icon: https://raw.githubusercontent.com/pyroscope-io/pyroscope/main/webapp/images/favicon.ico
+    keywords:
+    - profiling tool
+    name: pyroscope
+    urls:
+    - https://kubevela.github.io/catalog/experimental/pyroscope-0.17.1.tgz
+    version: 0.17.1
+  rabbitmq-operator:
+  - created: "2023-05-29T14:16:31.350107+08:00"
+    description: This addon adds rabbitmq-operator to the kubevela to be used across
+      the application installed in kubevela.
+    home: https://www.rabbitmq.com/kubernetes/operator/
+    icon: https://avatars.githubusercontent.com/u/71012429?v=4
+    keywords:
+    - Middleware
+    - Message Broker
+    name: rabbitmq-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/rabbitmq-operator-1.0.0.tgz
+    version: 1.0.0
+  redis-exporter:
+  - created: "2023-05-29T14:16:31.353828+08:00"
+    description: Prometheus Redis metrics exporter.
+    home: https://github.com/oliver006/redis_exporter
+    icon: https://redis.com/wp-content/themes/wpx/assets/images/logo-redis.svg
+    keywords:
+    - Observability
+    name: redis-exporter
+    urls:
+    - https://kubevela.github.io/catalog/experimental/redis-exporter-0.0.1.tgz
+    version: 0.0.1
+  redis-operator:
+  - annotations:
+      system.kubernetes: '>=1.19'
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:16:31.392349+08:00"
+    description: Redis Operator creates/configures/manages high availability redis
+      with sentinel automatic failover atop Kubernetes.
+    home: https://github.com/spotahome/redis-operator
+    keywords:
+    - redis
+    name: redis-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/redis-operator-0.0.1.tgz
+    version: 0.0.1
+  sae-apiserver-proxy:
+  - annotations:
+      system.vela: '>=v1.7.3'
+    created: "2023-05-29T14:16:31.415969+08:00"
+    description: sae-apiserver-proxy is a proxy server that implements the Kubernetes
+      aggregated APIServer and provide proxy access to SAE APIServer.
+    home: https://github.com/kubevela-contrib/sae-apiserver-proxy
+    icon: https://static.kubevela.net/images/logos/KubeVela%20-03.png
+    keywords:
+    - Official
+    name: sae-apiserver-proxy
+    urls:
+    - https://kubevela.github.io/catalog/experimental/sae-apiserver-proxy-v0.1.0.tgz
+    version: v0.1.0
+  spark-kubernetes-operator:
+  - annotations:
+      system.kubernetes: '>=1.16'
+      system.vela: '>=1.5.0-beta.3'
+    created: "2023-05-29T14:16:31.420216+08:00"
+    description: A kubernetes operator for Apache Spark
+    home: https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
+    icon: https://spark.apache.org/images/spark-logo.png
+    keywords:
+    - GoogleCloudPlatform/spark-on-k8s-operator
+    name: spark-kubernetes-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/spark-kubernetes-operator-v1beta2-1.3.8-3.1.1.tgz
+    version: v1beta2-1.3.8-3.1.1
+  terraform-vsphere:
+  - created: "2023-05-29T14:16:31.441818+08:00"
+    description: Kubernetes Terraform Controller Provider for VMware vSphere
+    home: https://github.com/oam-dev/terraform-controller
+    keywords:
+    - Terraform Provider
+    - Cloud Resource
+    name: terraform-vsphere
+    urls:
+    - https://kubevela.github.io/catalog/experimental/terraform-vsphere-1.0.0.tgz
+    version: 1.0.0
+  traefik-gateway:
+  - annotations:
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:16:31.494786+08:00"
+    description: The Cloud Native Application Proxy, Simplify networking complexity
+      while designing, deploying, and operating applications.
+    home: https://traefik.io/traefik
+    icon: https://traefik.io/static/traefik-proxy-logo--white-82153be41e0ce620a921b4bce974f6d8.svg
+    keywords:
+    - Official
+    - Gateway
+    name: traefik-gateway
+    urls:
+    - https://kubevela.github.io/catalog/experimental/traefik-gateway-v2.8.0-1.tgz
+    version: v2.8.0-1
+  vector-config:
+  - annotations:
+      system.vela: '>=v1.6.0-beta.1'
+    created: "2023-05-29T14:16:31.515917+08:00"
+    description: Vector is a lightweight, ultra-fast tool for building observability
+      pipelines.
+    home: https://vector.dev/
+    keywords:
+    - Observability
+    - Prometheus
+    - Metrics
+    - Logging
+    name: vector-config
+    urls:
+    - https://kubevela.github.io/catalog/experimental/vector-config-v0.1.0.tgz
+    version: v0.1.0
+  velero:
+  - annotations:
+      system.vela: '>=v1.5.0'
+    created: "2023-05-29T14:16:31.520237+08:00"
+    description: Velero is an open source tool to safely backup and restore, perform
+      disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.
+    icon: https://velero.io/img/Velero.svg
+    keywords:
+    - Backup
+    - Disaster Recovery
+    name: velero
+    urls:
+    - https://kubevela.github.io/catalog/experimental/velero-0.0.1.tgz
+    version: 0.0.1
+  volcano:
+  - created: "2023-05-29T14:16:31.524296+08:00"
+    description: This addon adds volcano to the kubevela to be used across the application
+      installed in kubevela.
+    home: https://volcano.sh/
+    icon: https://raw.githubusercontent.com/volcano-sh/charts/master/docs/images/volcano-logo.png
+    keywords:
+    - volcano
+    name: volcano
+    urls:
+    - https://kubevela.github.io/catalog/experimental/volcano-1.0.0.tgz
+    version: 1.0.0
+  zookeeper-operator:
+  - created: "2023-05-29T14:16:31.540027+08:00"
+    description: This addon adds zookeeper-operator to the kubevela to be used across
+      the application installed in kubevela.
+    home: https://zookeeper.apache.org/
+    icon: https://zookeeper.apache.org/images/zookeeper_small.gif
+    keywords:
+    - zookeeper-operator
+    name: zookeeper-operator
+    urls:
+    - https://kubevela.github.io/catalog/experimental/zookeeper-operator-1.0.0.tgz
+    version: 1.0.0
+generated: "0001-01-01T00:00:00Z"
